@@ -38,7 +38,7 @@ namespace тестовое_mvc.Controllers
         public async Task<IActionResult> All(ProductFilter productFilter)
         {
             IEnumerable<Product> products = await _products.GetProducts(productFilter);
-            return Ok(products);
+            return Ok(products.Select(p => new ShortProduct(p.Id,p.Name,p.Price)));
         }
 
 
