@@ -55,7 +55,7 @@ TestMvc — это веб-приложение для управления сп�
 
 1. Клонируйте репозиторий:
 
-git clone https://github.com/HemulenEXE/MVC-test-task
+git clone https://github.com/HemulenEXE/MVC-test-task. 
 После чего запустить можно через docker compose up --build
 либо через dotnet run
 либо через среду разработки
