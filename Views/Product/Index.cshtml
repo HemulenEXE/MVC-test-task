@@ -1,0 +1,27 @@
+@model IEnumerable<Product>
+
+
+<h2>Продукты</h2>
+<a href = "/Product/Create">Создать продукт</a> |
+<a href = "/Account/Logout">Выйти</a>
+
+<table border = "1" cellpadding = "6">
+
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Цена</th>
+        <th></th>
+    </tr>
+
+    @foreach(var p in Model)
+    {
+        <tr>
+            <th>@p.Id</th>
+            <th>@p.Name</th>
+            <th>@p.Price</th>
+            <th><a href = "/Product/Edit/@p.Id">Редактировать</a></th>
+        </tr>
+    }
+
+</table>

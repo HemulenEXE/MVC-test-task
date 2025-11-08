@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using test_mvc.Data;
-using test_mvc.Models;
-using тестовое_mvc.Models.DTO;
+using TestMvc.Data;
+using TestMvc.Models;
+using TestMvc.Models.DTO;
 using AutoMapper;
 
-namespace тестовое_mvc.Repositories
+namespace TestMvc.Repositories
 {
     public class ProductMSSqlRepository : IProductRepositories
     {
@@ -36,11 +36,10 @@ namespace тестовое_mvc.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Product> GetProductById(int id)
+        public async Task<Product?> GetProductById(int id)
         {
             Product? product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
             return product;
-            
         }
 
         public async Task<IEnumerable<Product>> GetProducts(ProductFilter filter)
@@ -71,7 +70,9 @@ namespace тестовое_mvc.Repositories
             Product? oldProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == product.Id);
             if (oldProduct != null)
             {
-                _mapper.Map(product, oldProduct);
+                oldProduct.Name = product.Name;
+                oldProduct.Description = product.Description;
+                oldProduct.Price = product.Price;
                 await _context.SaveChangesAsync();
             }
             return;

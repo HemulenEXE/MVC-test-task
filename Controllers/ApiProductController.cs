@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using test_mvc.Models;
-using тестовое_mvc.Models.DTO;
-using тестовое_mvc.Repositories;
+using TestMvc.Models;
+using TestMvc.Models.DTO;
+using TestMvc.Repositories;
 
-namespace тестовое_mvc.Controllers
+namespace TestMvc.Controllers
 {
     [ApiController]
     [Route("api/Product")]
@@ -35,7 +35,7 @@ namespace тестовое_mvc.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> All(ProductFilter productFilter)
+        public async Task<IActionResult> All([FromQuery] ProductFilter productFilter)
         {
             IEnumerable<Product> products = await _products.GetProducts(productFilter);
             return Ok(products.Select(p => new ShortProduct(p.Id,p.Name,p.Price)));

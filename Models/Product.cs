@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace test_mvc.Models
+namespace TestMvc.Models
 {
     public class Product
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string Name { get; set; } = String.Empty;
+        public string Description { get; set; } = String.Empty;
         public float Price { get; set; }
 
-        private Product() { }
+        public Product() { }
 
         public Product(string Name, string Description, float Price)
         {

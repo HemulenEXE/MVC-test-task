@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Net.Http.Headers;
-using test_mvc.Models;
+using TestMvc.Models;
 
-namespace test_mvc.Data
+namespace TestMvc.Data
 {
     public class ApplicationDbContext : DbContext
     {
