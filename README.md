@@ -36,13 +36,12 @@ TestMvc — это веб-приложение для управления сп�
 - Entity Framework Core  
 - Microsoft SQL Server  
 - Docker и Docker Compose  
-- AutoMapper  
 
 ---
 
 ## Как это сделано
 
-- **ASP.NET Core MVC** — структура с контроллерами (`ProductController`, `AccountController`), моделями (`Product`, DTO для API) и представлениями Razor Pages (`Views`).  
+- **ASP.NET Core MVC** — структура с контроллерами (`ProductController`, `AccountController`), моделями (`Product`, DTO для API) и представлениями (`Views`).  
 - **Entity Framework Core** — для работы с MSSQL, миграции и сохранение данных.  
 - **Авторизация** — cookie-based, логин и пароль берутся из `appsettings.json`.  
 - **API** — отдельные методы контроллера с `[HttpGet]` и `[FromQuery]` для фильтрации.  
